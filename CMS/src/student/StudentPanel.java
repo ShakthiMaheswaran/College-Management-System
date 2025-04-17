@@ -1,7 +1,6 @@
 package student;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,8 +32,12 @@ public class StudentPanel extends GeneralPanel{
 
 	public StudentPanel() {
 		
-		b4.setText("Refresh");
-		b4.addActionListener(new ActionListener() {
+		
+		setheight(200);
+		
+		b3.setText("Refresh");
+		b3.setVisible(true);
+		b3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -44,10 +47,12 @@ public class StudentPanel extends GeneralPanel{
 			}
 		});
 
-		b3.setText("View Student");
+		b2.setText("View Student");
+		b2.setVisible(true);
 		
-		b2.setText("Add Student");
-		b2.addActionListener(new ActionListener() {
+		b1.setText("Add Student");
+		b1.setVisible(true);
+		b1.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -57,16 +62,10 @@ public class StudentPanel extends GeneralPanel{
 			}
 		});
 
-		studentslabel = new JLabel("All Students");
-		studentslabel.setIcon(null);
-		studentslabel.setBounds(10, 65, 224, 44);
-		bgpanel.add(studentslabel);
-		studentslabel.setBackground(Color.cyan);
-		studentslabel.setHorizontalAlignment(SwingConstants.LEFT);
-		studentslabel.setForeground(Color.WHITE);
-		studentslabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
-		studentslabel.setOpaque(true);
-
+		heading.setText("All Student");
+		add(backgroundPanel);
+		
+		
 		try {
 			model = new DefaultTableModel();
 			table = new JTable(model);
@@ -93,8 +92,7 @@ public class StudentPanel extends GeneralPanel{
 			e.printStackTrace();
 		}
 
-		setLayout(null);
-		add(bgpanel);
+		
 
 	}
 

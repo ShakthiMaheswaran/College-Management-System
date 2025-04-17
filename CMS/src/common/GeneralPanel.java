@@ -86,5 +86,9 @@ public class GeneralPanel extends JPanel{
 		
 		add(backgroundPanel);
 	}
+	public void setheight(int height) {
+		bgheight = height;
+		backgroundPanel.setSize(1032, bgheight);
+	}
 	
 }
