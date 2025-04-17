@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
+import common.Dashboard;
 import common.Img;
 
 public class homepage {
@@ -221,6 +222,8 @@ public class homepage {
 		facultypanel.setVisible(true);
 		facultypanel.setLocation(facultypanelx, facultypanely);
 		contentPanel.add(facultypanel);
+		
+		adminpanel.Lsucces(101); // remove this after developing
 
 		// background image
 		bgimg = new JLabel();
@@ -239,6 +242,7 @@ public class homepage {
 			public void run() {
 				@SuppressWarnings("unused")
 				homepage h = new homepage();
+				
 				
 			}
 		});

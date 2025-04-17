@@ -20,34 +20,21 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import common.GeneralPanel;
 import common.db.Studentdb;
 
 @SuppressWarnings("serial")
-public class StudentPanel extends JPanel {
+public class StudentPanel extends GeneralPanel{
 	private JPanel bgpanel;
-	private JButton viewstudent, addstudent, refreshbutton;
+	
 	private JLabel studentslabel;
 	private static DefaultTableModel model;
 	private JTable table;
 
 	public StudentPanel() {
-
-		bgpanel = new JPanel();
-		bgpanel.setBackground(Color.cyan);
-		bgpanel.setLayout(null);
-		bgpanel.setBorder(new LineBorder(Color.black, 3, true));
-		bgpanel.setBounds(8, 0, 1032, 200);
-
-		refreshbutton = new JButton("Refresh");
-		refreshbutton.setBorder(new LineBorder(Color.black));
-		refreshbutton.setBounds(546, 139, 153, 33);
-		bgpanel.add(refreshbutton);
-		refreshbutton.setFocusable(false);
-		refreshbutton.setForeground(new Color(0, 128, 128));
-		refreshbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		refreshbutton.setBackground(new Color(255, 255, 255));
-		refreshbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		refreshbutton.addActionListener(new ActionListener() {
+		
+		b4.setText("Refresh");
+		b4.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -57,27 +44,10 @@ public class StudentPanel extends JPanel {
 			}
 		});
 
-		viewstudent = new JButton("View Student");
-		viewstudent.setBorder(new LineBorder(Color.black));
-		viewstudent.setBounds(709, 139, 153, 33);
-		bgpanel.add(viewstudent);
-		viewstudent.setFocusable(false);
-		viewstudent.setForeground(new Color(0, 128, 128));
-		viewstudent.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		viewstudent.setBackground(new Color(255, 255, 255));
-		viewstudent.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		;
-
-		addstudent = new JButton("Add Student");
-		addstudent.setBorder(new LineBorder(Color.black));
-		addstudent.setBounds(872, 139, 153, 33);
-		bgpanel.add(addstudent);
-		addstudent.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		addstudent.setFocusable(false);
-		addstudent.setForeground(new Color(0, 128, 128));
-		addstudent.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		addstudent.setBackground(new Color(255, 255, 255));
-		addstudent.addActionListener(new ActionListener() {
+		b3.setText("View Student");
+		
+		b2.setText("Add Student");
+		b2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

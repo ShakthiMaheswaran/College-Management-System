@@ -15,16 +15,14 @@ import faculty.FacultyData;
 import student.StudentData;
 
 @SuppressWarnings("serial")
-public class Homepanel extends JPanel {
+public class Homepanel extends GeneralPanel {
 
-	private JPanel bgpanel;
 	private JPanel studentcountPanel;
 	private JPanel facultycountPanel;
 	private JPanel courcescountPanel;
 	private JPanel subjectcountPanel;
 	private JLabel count;
-	private JLabel welcomeLable;
-	private JLabel nameLable;
+	private JLabel welcomeLabel;
 	private AdminData ad;
 	private FacultyData fd;
 	private StudentData sd;
@@ -37,24 +35,15 @@ public class Homepanel extends JPanel {
 		this.profile = p;
 		this.u_id = u;
 		RBAC();
-		bgpanel = new JPanel();
-		bgpanel.setBackground(Color.cyan);
-		bgpanel.setLayout(null);
-		bgpanel.setBorder(new LineBorder(Color.black, 3, true));
-		bgpanel.setBounds(8, 0, 1032, 300);
+		
+		welcomeLabel = new JLabel("Welcome Administrator" );//+ ad.getUsername());
+		welcomeLabel.setForeground(Color.white);
+		welcomeLabel.setHorizontalAlignment(JLabel.RIGHT);
+		welcomeLabel.setFont(new Font("times new roman", Font.BOLD, 50));
+		welcomeLabel.setBounds(0, 20, 1025, 50);
 
-		welcomeLable = new JLabel("Welcome Administrator" );//+ ad.getUsername());
-		welcomeLable.setForeground(Color.white);
-		welcomeLable.setHorizontalAlignment(JLabel.RIGHT);
-		welcomeLable.setFont(new Font("times new roman", Font.BOLD, 50));
-		welcomeLable.setBounds(0, 20, 1025, 50);
-
-		nameLable = new JLabel("Home Page");
-		nameLable.setForeground(Color.white);
-		nameLable.setHorizontalAlignment(JLabel.LEFT);
-		nameLable.setFont(new Font("times new roman", Font.BOLD, 50));
-		nameLable.setBounds(10, 120, 1025, 60);
-
+		heading.setText("Home Page");
+		
 		studentcountPanel = createPanel("Students", Integer.toString(new Studentdb().studentCount()));
 
 		courcescountPanel = createPanel("Cources", "0");
@@ -63,15 +52,16 @@ public class Homepanel extends JPanel {
 
 		subjectcountPanel = createPanel("Subjects", "0");
 
-		bgpanel.add(welcomeLable);
-		bgpanel.add(nameLable);
+		
+		backgroundPanel.add(welcomeLabel);
 
-		setLayout(null);
+		
 		add(studentcountPanel);
 		add(courcescountPanel);
 		add(facultycountPanel);
 		add(subjectcountPanel);
-		add(bgpanel);
+		add(backgroundPanel);
+		
 	}
 
 	public void RBAC() {

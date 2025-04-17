@@ -79,18 +79,19 @@ public class Dashboard implements ActionListener {
 		mainContentPanel = new JPanel(card);
 		mainContentPanel.setBounds(255, 5, mf.getWidth(), mf.getHeight());
 		System.out.println(mf.getWidth());
-		mainContentPanel.setBackground(Color.pink);
 		RBAC();
 		addPanels();
 		contentPanel.add(mainContentPanel);
 
+		
+		
 		mf.revalidate();
 		mf.repaint();
 	}
 
 	public void addButton() {
 		homeButton = createButton("Home");
-		currentButton = homeButton;
+		//currentButton = homeButton;
 		sidePanel.add(homeButton);
 
 		studentButton = createButton("Student");
@@ -103,6 +104,7 @@ public class Dashboard implements ActionListener {
 		sidePanel.add(courseButton);
 
 		subjectButton = createButton("Subject");
+		currentButton = subjectButton;
 		sidePanel.add(subjectButton);
 
 		assignButton = createButton("Assign Subject");
@@ -131,7 +133,8 @@ public class Dashboard implements ActionListener {
 	}
 
 	public void addPanels() {
-
+		
+		
 		homePanel = new Homepanel(profile, user_id);
 		mainContentPanel.add(homeButton.getName(), homePanel);
 
@@ -143,8 +146,8 @@ public class Dashboard implements ActionListener {
 
 		couresPanel = new CourcePanel();
 		mainContentPanel.add(courseButton.getName(), couresPanel);
-
-		subjectPanel = new JPanel();
+		
+		subjectPanel = new SubjectPanel();
 		mainContentPanel.add(subjectButton.getName(), subjectPanel);
 
 		assignPanel = new JPanel();
