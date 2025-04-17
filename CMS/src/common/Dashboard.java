@@ -132,8 +132,8 @@ public class Dashboard implements ActionListener {
 
 	public void addPanels() {
 
-		//homePanel = new Homepanel(profile, user_id);
-		homePanel = new H1();
+		homePanel = new Homepanel(profile, user_id);
+		
 		mainContentPanel.add(homeButton.getName(), homePanel);
 
 		studentPanel = new StudentPanel();
