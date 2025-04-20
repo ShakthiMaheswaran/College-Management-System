@@ -26,8 +26,6 @@ public class StudentPanel extends GeneralPanel{
 
 	public StudentPanel() {
 		
-		
-		
 		resize(200);
 		
 		b3.setText("Refresh");

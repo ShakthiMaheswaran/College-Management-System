@@ -1,7 +1,6 @@
 package faculty;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,46 +9,29 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import common.GeneralPanel;
 import common.db.Facultydb;
 
 
 @SuppressWarnings("serial")
-public class FacultyPanel extends JPanel {
+public class FacultyPanel extends GeneralPanel{
 
-	private JPanel bgpanel;
-	private JButton addfaculty, editfaculty, refreshbutton;
-	private JLabel facultylabel;
 	private static DefaultTableModel model;
 	private JTable table;
 
 	public FacultyPanel() {
 
-		bgpanel = new JPanel();
-		bgpanel.setBackground(Color.cyan);
-		bgpanel.setLayout(null);
-		bgpanel.setBorder(new LineBorder(Color.black, 3, true));
-		bgpanel.setBounds(8, 0, 1032, 200);
-
-		refreshbutton = new JButton("Refresh");
-		refreshbutton.setBorder(new LineBorder(Color.black));
-		refreshbutton.setBounds(546, 139, 153, 33);
-		bgpanel.add(refreshbutton);
-		refreshbutton.setFocusable(false);
-		refreshbutton.setForeground(new Color(0, 128, 128));
-		refreshbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		refreshbutton.setBackground(new Color(255, 255, 255));
-		refreshbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		refreshbutton.addActionListener(new ActionListener() {
+		resize(200);
+		
+		b3.setText("Refresh");
+		b3.setVisible(true);
+		b3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -58,17 +40,9 @@ public class FacultyPanel extends JPanel {
 
 			}
 		});
-
-		addfaculty = new JButton("Add Faculities");
-		addfaculty.setBorder(new LineBorder(Color.black));
-		addfaculty.setBounds(709, 139, 153, 33);
-		bgpanel.add(addfaculty);
-		addfaculty.setFocusable(false);
-		addfaculty.setForeground(new Color(0, 128, 128));
-		addfaculty.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		addfaculty.setBackground(new Color(255, 255, 255));
-		addfaculty.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		addfaculty.addActionListener(new ActionListener() {
+		b2.setText("Add Faculities");
+		b2.setVisible(true);
+		b2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -77,26 +51,9 @@ public class FacultyPanel extends JPanel {
 
 			}
 		});
-
-		editfaculty = new JButton("Edit Faculty");
-		editfaculty.setBorder(new LineBorder(Color.black));
-		editfaculty.setBounds(872, 139, 153, 33);
-		bgpanel.add(editfaculty);
-		editfaculty.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		editfaculty.setFocusable(false);
-		editfaculty.setForeground(new Color(0, 128, 128));
-		editfaculty.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		editfaculty.setBackground(new Color(255, 255, 255));
-
-		facultylabel = new JLabel("All Faculities");
-		facultylabel.setIcon(null);
-		facultylabel.setBounds(10, 65, 224, 44);
-		bgpanel.add(facultylabel);
-		facultylabel.setBackground(Color.cyan);
-		facultylabel.setHorizontalAlignment(SwingConstants.LEFT);
-		facultylabel.setForeground(Color.WHITE);
-		facultylabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
-		facultylabel.setOpaque(true);
+		b1.setText("Edit Faculty");
+		b1.setVisible(true);
+		heading.setText("All Faculities");
 
 		try {
 			model = new DefaultTableModel();
@@ -124,7 +81,7 @@ public class FacultyPanel extends JPanel {
 		}
 
 		setLayout(null);
-		add(bgpanel);
+		
 
 	}
 
