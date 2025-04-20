@@ -9,13 +9,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,16 +20,15 @@ import common.db.Studentdb;
 
 @SuppressWarnings("serial")
 public class StudentPanel extends GeneralPanel{
-	private JPanel bgpanel;
 	
-	private JLabel studentslabel;
 	private static DefaultTableModel model;
 	private JTable table;
 
 	public StudentPanel() {
 		
 		
-		setheight(200);
+		
+		resize(200);
 		
 		b3.setText("Refresh");
 		b3.setVisible(true);
