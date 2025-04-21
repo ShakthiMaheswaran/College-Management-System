@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -284,9 +285,19 @@ public class Dashboard implements ActionListener {
 		}
 		if (e.getSource() == logOutButton) {
 			currentButton = logOutButton;
+			int a = JOptionPane.showConfirmDialog(null, "Do You want to logout", "Conformaction", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if(a==0) {
+				mf.getContentPane().removeAll();
+				mf.repaint();
+				new homepage(mf);  
+			}
 		}
 		if (e.getSource() == exitButton) {
 			currentButton = exitButton;
+			int a = JOptionPane.showConfirmDialog(null, "Do You want to Exit", "Conformaction", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if(a==0) {
+				mf.dispose();
+			}
 		}
 
 		ActiveButton(currentButton);

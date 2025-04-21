@@ -35,7 +35,7 @@ public class homepage {
 	private boolean adminchanging = false, facultychanging = false, studentchanging = false;
 	private int underlinelabelx = 340, underlinelabelwidth = 150;
 
-	homepage() {
+	public homepage(JFrame mf) {
 
 		// initialization
 
@@ -96,11 +96,7 @@ public class homepage {
 			}
 		});
 
-		// Properties of main frame
-		mainFrame = new JFrame("College Management System");
-		mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		mainFrame.setSize(1380, 733);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame = mf;
 
 		// setting the appLogo
 		ImageIcon img = Img.applogo;
@@ -241,7 +237,14 @@ public class homepage {
 			@Override
 			public void run() {
 				@SuppressWarnings("unused")
-				homepage h = new homepage();
+				JFrame mf;
+				// Properties of main frame
+				mf = new JFrame("College Management System");
+				mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				mf.setSize(1380, 733);
+				mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				homepage h = new homepage(mf);
 				
 				
 			}
