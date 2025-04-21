@@ -24,6 +24,7 @@ import faculty.FacultyPanel;
 import home.homepage;
 import student.StudentData;
 import student.StudentPanel;
+import subject.SubjectPanel;
 
 @SuppressWarnings("unused")
 public class Dashboard implements ActionListener {

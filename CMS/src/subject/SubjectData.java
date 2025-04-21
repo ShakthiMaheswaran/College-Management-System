@@ -1,4 +1,4 @@
-package common;
+package subject;
 
 import common.db.Subjectdb;
 

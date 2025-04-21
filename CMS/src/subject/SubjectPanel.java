@@ -1,8 +1,10 @@
-package common;
+package subject;
+
+import common.GeneralPanel;
 
 public class SubjectPanel extends GeneralPanel{
 	
-	SubjectPanel(){
+	public SubjectPanel(){
 		super();
 		heading.setText("Subjects");
 	}
