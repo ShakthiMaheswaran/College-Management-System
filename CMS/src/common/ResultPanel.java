@@ -1,14 +1,12 @@
 package common;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,12 +22,9 @@ import common.db.Courcedb;
 import common.db.Studentdb;
 
 @SuppressWarnings("serial")
-public class ResultPanel extends JPanel {
+public class ResultPanel extends GeneralPanel{
 
-	private JPanel bgpanel;
 	private JPanel selectcourcepanel;
-	private JButton intermark, extrnmark;
-	private JLabel resultlabel;
 	private static DefaultTableModel model;
 	private JTable table;
 	private JLabel selectcourselable, selectyearlabel, selectsublable;
@@ -37,43 +32,15 @@ public class ResultPanel extends JPanel {
 
 	public ResultPanel() {
 
-		bgpanel = new JPanel();
-		bgpanel.setBackground(Color.cyan);
-		bgpanel.setLayout(null);
-		bgpanel.setBorder(new LineBorder(Color.black, 3, true));
-		bgpanel.setBounds(8, 0, 1032, 120);
-
-		intermark = new JButton("Internal Marks");
-		intermark.setBorder(new LineBorder(Color.black));
-		intermark.setBounds(709, 75, 153, 33);
-		bgpanel.add(intermark);
-		intermark.setFocusable(false);
-		intermark.setForeground(new Color(0, 128, 128));
-		intermark.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		intermark.setBackground(new Color(255, 255, 255));
-		intermark.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		;
-
-		extrnmark = new JButton("External Marks");
-		extrnmark.setBorder(new LineBorder(Color.black));
-		extrnmark.setBounds(872, 75, 153, 33);
-		bgpanel.add(extrnmark);
-		extrnmark.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		extrnmark.setFocusable(false);
-		extrnmark.setForeground(new Color(0, 128, 128));
-		extrnmark.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		extrnmark.setBackground(new Color(255, 255, 255));
-
-		resultlabel = new JLabel("Enter Marks");
-		resultlabel.setIcon(null);
-		resultlabel.setBounds(10, 65, 224, 44);
-		bgpanel.add(resultlabel);
-		resultlabel.setBackground(Color.cyan);
-		resultlabel.setHorizontalAlignment(SwingConstants.LEFT);
-		resultlabel.setForeground(Color.WHITE);
-		resultlabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
-		resultlabel.setOpaque(true);
-
+		resize(120);
+		b3.setText("Internal Marks");
+		b3.setVisible(true);
+		b2.setText("External Marks");
+		b2.setVisible(true);
+		b1.setText("Enter Marks");
+		b1.setVisible(true);
+		heading.setText("Result");
+		
 		selectcourcepanel = new JPanel();
 		selectcourcepanel.setBounds(8, 125, 1073, 250);
 		selectcourcepanel.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -151,7 +118,7 @@ public class ResultPanel extends JPanel {
 
 		setLayout(null);
 		add(selectcourcepanel);
-		add(bgpanel);
+		
 
 	}
 
