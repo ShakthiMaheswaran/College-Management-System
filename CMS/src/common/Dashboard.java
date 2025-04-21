@@ -18,6 +18,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import admin.AdminData;
+import admin.AdminProfilePanel;
+import common.attendence.AttendencePanel;
+import common.connected.AssignSubPanel;
 import cource.CourcePanel;
 import faculty.FacultyData;
 import faculty.FacultyPanel;
@@ -151,22 +154,22 @@ public class Dashboard implements ActionListener {
 		subjectPanel = new SubjectPanel();
 		mainContentPanel.add(subjectButton.getName(), subjectPanel);
 
-		assignPanel = new JPanel();
+		assignPanel = new AssignSubPanel();
 		mainContentPanel.add(assignButton.getName(), assignPanel);
 
 		ResultPanel = new ResultPanel();
 		mainContentPanel.add(ResultButton.getName(), ResultPanel);
 
-		attandancePanel = new JPanel();
+		attandancePanel = new AttendencePanel();
 		mainContentPanel.add(attandanceButton.getName(), attandancePanel);
 
-		usersPanel = new JPanel();
+		usersPanel = new UserPanel();
 		mainContentPanel.add(usersButton.getName(), usersPanel);
 
-		searchPanel = new JPanel();
+		searchPanel = new SearchPanel();
 		mainContentPanel.add(searchButton.getName(), searchPanel);
 
-		profilePanel = new JPanel();
+		profilePanel = new AdminProfilePanel();
 		mainContentPanel.add(profileButton.getName(), profilePanel);
 
 	}
