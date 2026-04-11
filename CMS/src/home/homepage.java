@@ -182,7 +182,6 @@ public class homepage {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("clicked student");
 				if (studentpanelx != 420) {
 					studentchanging = true;
 					if (!timer.isRunning()) {
@@ -219,7 +218,7 @@ public class homepage {
 		facultypanel.setLocation(facultypanelx, facultypanely);
 		contentPanel.add(facultypanel);
 		
-		adminpanel.Lsucces(101); // remove this after developing
+		//adminpanel.Lsucces(101); // remove this after developing
 
 		// background image
 		bgimg = new JLabel();

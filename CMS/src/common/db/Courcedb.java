@@ -142,6 +142,40 @@ public class Courcedb {
 		}
 		
 	}
+	
+	public String[] getCourseNames(int deptid) {
+		
+		try {
+			String[] str;
+			
+			Connection con = new DataBase().getconnection();
+			
+			PreparedStatement ps = con.prepareStatement("select count(*) from course where deptId = ? ;");
+			ps.setInt(1, deptid);
+			ResultSet rs = ps.executeQuery();
+			
+			rs.next();
+			str = new String[rs.getInt(1)];
+			
+			ps = con.prepareStatement("select cName from course where deptId = ? ;");
+			ps.setInt(1, deptid);
+			rs = ps.executeQuery();
+			int i = 0;
+			while(rs.next()) {
+				str[i++] = rs.getString(1);
+			}
+			con.close();
+			return str;
+			
+		}
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 	public static int getcid(String name) {
 		try {
 			
@@ -168,5 +202,30 @@ public class Courcedb {
 		}
 	}
 	
+	public int getDuris(String name) {
+		try {
+			
+			
+			Connection con = new DataBase().getconnection();
+			
+			PreparedStatement ps = con.prepareStatement("select cDuration from course where cName = ?;");
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+			
+			rs.next();
+			
+			int i = rs.getInt(1); 
+			con.close();
+			return i;
+			
+			
+			
+		}
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+			return 0;
+		}
+	}
 	
 }

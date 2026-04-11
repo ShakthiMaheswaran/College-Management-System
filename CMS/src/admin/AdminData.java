@@ -23,7 +23,7 @@ public class AdminData {
 	public void getData() {
 		Admindb adb = new Admindb();
 		adb.setData(this);
-		System.out.println(this.username);
+		
 	}
 
 	public boolean getAcces() {

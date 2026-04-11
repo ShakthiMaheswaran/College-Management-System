@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DataBase {
 
-	private String url = "jdbc:mysql://localhost:3306/test1";
+	private String url = "jdbc:mysql://localhost:3306/test2";
 	private String username = "root";
 	private String password = "root";
 

@@ -83,7 +83,6 @@ public class Dashboard implements ActionListener {
 		card = new CardLayout();
 		mainContentPanel = new JPanel(card);
 		mainContentPanel.setBounds(255, 5, mf.getWidth(), mf.getHeight());
-		System.out.println(mf.getWidth());
 		RBAC();
 		addPanels();
 		contentPanel.add(mainContentPanel);
@@ -96,7 +95,7 @@ public class Dashboard implements ActionListener {
 
 	public void addButton() {
 		homeButton = createButton("Home");
-		//currentButton = homeButton;
+		currentButton = homeButton;
 		sidePanel.add(homeButton);
 
 		studentButton = createButton("Student");
@@ -109,7 +108,7 @@ public class Dashboard implements ActionListener {
 		sidePanel.add(courseButton);
 
 		subjectButton = createButton("Subject");
-		currentButton = subjectButton;
+		//currentButton = subjectButton;
 		sidePanel.add(subjectButton);
 
 		assignButton = createButton("Assign Subject");
@@ -139,13 +138,12 @@ public class Dashboard implements ActionListener {
 
 	public void addPanels() {
 		
-		
 		homePanel = new Homepanel(profile, user_id);
 		mainContentPanel.add(homeButton.getName(), homePanel);
 
 		studentPanel = new StudentPanel();
 		mainContentPanel.add(studentButton.getName(), studentPanel);
-
+		
 		facultyPanel = new FacultyPanel();
 		mainContentPanel.add(facultyButton.getName(), facultyPanel);
 

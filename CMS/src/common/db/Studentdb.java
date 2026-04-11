@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.xml.crypto.Data;
-
 import student.StudentData;
 
 public class Studentdb {
@@ -217,6 +215,65 @@ public class Studentdb {
 
 			e.printStackTrace();
 			return null;
+		}
+
+	}
+	public Integer[] getrollnos(String year,int cid) {
+		
+		try {
+
+			Connection con = new DataBase().getconnection();
+
+			PreparedStatement ps = con.prepareStatement("select Count(rollNo) from student where year = ? && courseId = ?;");
+			ps.setString(1, year);
+			ps.setInt(2, cid);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			Integer rollNos[] = new Integer[rs.getInt(1)]; 
+			
+			ps = con.prepareStatement("select rollNo from student where year = ? && courseId = ?;");
+			ps.setString(1, year);
+			ps.setInt(2, cid);
+			
+			rs = ps.executeQuery();
+			int i = 0;
+			while(rs.next()) {
+				rollNos[i++] = Integer.valueOf(rs.getInt(1));
+			}
+			con.close();
+			return rollNos;
+			
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	public int getId(int cid,String year,int rno) {
+		
+		try {
+
+			Connection con = new DataBase().getconnection();
+
+			PreparedStatement ps = con.prepareStatement("select studentId from student where courseId = ? && year = ? && rollNo = ?;");
+			ps.setInt(1, cid);
+			ps.setString(2, year);
+			ps.setInt(3, rno);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			int sId = rs.getInt(1);
+			con.close();
+			return sId;
+			
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			return 0;
 		}
 
 	}
